@@ -1,0 +1,6 @@
+﻿record_id,platform,post_date,post_summary,persona,price_risk,trust_risk,service_risk,transparency_risk,alternative_risk,churn_score,journey_stage,primary_trigger,recommended_action,label_type
+LX001,PTT,2022-02-11,車主認為回原廠保養費用持續增加，也常被建議更換多個項目，因此開始考慮降低回原廠頻率。,價格敏感型,88,68,40,78,72,70,Stage 3 - Comparison,價格上升與維修必要性疑慮,提供維修必要性分級與價格透明說明,Public post / paraphrased weak label
+LX002,PTT,2024-12-27,車輛已過保且里程提高，車主開始評估將部分保養項目移至外廠，但關鍵項目仍考慮原廠。,過保外移型,62,42,25,35,85,53,Stage 3 - Comparison,過保後評估外廠,提供過保分級保養方案與原廠價值說明,Public post / paraphrased weak label
+LX003,PTT,2024-12-10,車主認為較舊車輛在外廠保養可能更划算，因此主動詢問民間保養廠評價。,價格敏感型,78,35,20,25,94,55,Stage 4 - Alternative Search,主動搜尋外廠,針對替代意圖提供價值比較與顧問式服務,Public post / paraphrased weak label
+LX004,Mobile01,2020-10-22,長期車主認為保養費與更換項目增加，且曾遇到原廠未解決的車況問題由外廠快速處理，對原廠專業度產生疑慮。,信任崩解型,82,95,78,86,76,84,Stage 4 - Alternative Search,原廠診斷失敗與外廠成功處理,安排第二技師意見與主動追蹤,Public post / paraphrased weak label
+LX005,Mobile01,2025-08-11,車主多次反映問題但原廠判定正常，後續至專修外廠快速找到問題，明顯降低對原廠的信任。,信任崩解型,48,99,92,72,96,83,Stage 5 - Churn,多次未解決與信任崩解,第二技師意見、技術依據與專人關懷,Public post / paraphrased weak label

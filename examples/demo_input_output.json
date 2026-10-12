@@ -1,0 +1,12 @@
+{
+  "input": "最近回原廠又叫我換一堆東西，報價快三萬，有人推薦台北 Lexus 外廠嗎？",
+  "output": {
+    "persona": "價格敏感型",
+    "journey_stage": "Stage 4 - Alternative Search",
+    "churn_score": 87,
+    "risk_level": "High",
+    "primary_trigger": "價格不滿 + 主動尋找外廠",
+    "next_best_action": "提供維修項目必要性分級與價格透明說明，並由服務顧問主動聯繫。"
+  },
+  "note": "Illustrative prototype example. Production scoring requires calibration."
+}

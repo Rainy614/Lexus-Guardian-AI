@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexus Guardian AI</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand">LEXUS GUARDIAN AI</div>
+      <div class="subtitle">車主流失旅程預測與智慧介入引擎</div>
+    </div>
+    <div class="badge">Hackathon Prototype v0.3</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">FROM LISTENING TO RETENTION</p>
+        <h1>從「發現抱怨」進化到「預防流失」</h1>
+        <p>輸入一段 Lexus 車主公開討論，系統將分析流失風險、Journey Stage、關鍵 Trigger，並推薦 Next Best Action。</p>
+      </div>
+      <div class="journey">
+        <span>Stable</span><b>→</b><span>Complaint</span><b>→</b><span>Doubt</span><b>→</b><span>Comparison</span><b>→</b><span>Alternative Search</span><b>→</b><span>Churn</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel input-panel">
+        <h2>Customer Signal Input</h2>
+
+        <label>車主貼文</label>
+        <textarea id="text">最近回原廠又叫我換一堆東西，報價快三萬，有人推薦台北 Lexus 外廠嗎？</textarea>
+
+        <label>Persona</label>
+        <select id="persona">
+          <option>價格敏感型</option>
+          <option>信任崩解型</option>
+          <option>時間效率型</option>
+          <option>過保外移型</option>
+          <option>未分類</option>
+        </select>
+
+        <div class="risk-grid">
+          <div><label>Price Risk</label><input id="price_risk" type="number" min="0" max="100" value="88"></div>
+          <div><label>Trust Risk</label><input id="trust_risk" type="number" min="0" max="100" value="76"></div>
+          <div><label>Service Risk</label><input id="service_risk" type="number" min="0" max="100" value="55"></div>
+          <div><label>Transparency Risk</label><input id="transparency_risk" type="number" min="0" max="100" value="84"></div>
+          <div><label>Alternative Risk</label><input id="alternative_risk" type="number" min="0" max="100" value="96"></div>
+        </div>
+
+        <button id="analyzeBtn">Analyze Customer Risk</button>
+      </div>
+
+      <div class="panel result-panel">
+        <div class="result-header">
+          <div>
+            <div class="small">CHURN RISK SCORE</div>
+            <div class="score" id="score">--</div>
+          </div>
+          <div class="risk-badge" id="riskLevel">Waiting</div>
+        </div>
+
+        <div class="metric">
+          <div class="small">Journey Stage</div>
+          <div class="big" id="stage">尚未分析</div>
+        </div>
+
+        <div class="metric">
+          <div class="small">Primary Trigger</div>
+          <div class="big" id="trigger">尚未分析</div>
+        </div>
+
+        <div class="metric action">
+          <div class="small">Next Best Action</div>
+          <div class="big" id="action">尚未分析</div>
+        </div>
+
+        <div id="bars" class="bars"></div>
+      </div>
+    </section>
+
+    <section class="footer-note">
+      Prototype logic is heuristic for concept validation only. Production use requires labeled data, calibration, and Lexus first-party outcome validation.
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
