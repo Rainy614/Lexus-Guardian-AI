@@ -120,3 +120,17 @@ The prototype provides:
 - journey stage
 - primary trigger
 - next best action
+
+
+## Premium Web UI
+
+v0.4 includes a redesigned competition/demo interface with:
+
+- premium Lexus-inspired visual system
+- churn journey visualization
+- interactive risk sliders
+- churn score panel
+- AI interpretation
+- primary trigger
+- Next Best Action
+- visual risk profile

@@ -1,91 +1,231 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lexus Guardian AI</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <div class="brand">LEXUS GUARDIAN AI</div>
-      <div class="subtitle">車主流失旅程預測與智慧介入引擎</div>
-    </div>
-    <div class="badge">Hackathon Prototype v0.3</div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">FROM LISTENING TO RETENTION</p>
-        <h1>從「發現抱怨」進化到「預防流失」</h1>
-        <p>輸入一段 Lexus 車主公開討論，系統將分析流失風險、Journey Stage、關鍵 Trigger，並推薦 Next Best Action。</p>
-      </div>
-      <div class="journey">
-        <span>Stable</span><b>→</b><span>Complaint</span><b>→</b><span>Doubt</span><b>→</b><span>Comparison</span><b>→</b><span>Alternative Search</span><b>→</b><span>Churn</span>
-      </div>
-    </section>
-
-    <section class="grid">
-      <div class="panel input-panel">
-        <h2>Customer Signal Input</h2>
-
-        <label>車主貼文</label>
-        <textarea id="text">最近回原廠又叫我換一堆東西，報價快三萬，有人推薦台北 Lexus 外廠嗎？</textarea>
-
-        <label>Persona</label>
-        <select id="persona">
-          <option>價格敏感型</option>
-          <option>信任崩解型</option>
-          <option>時間效率型</option>
-          <option>過保外移型</option>
-          <option>未分類</option>
-        </select>
-
-        <div class="risk-grid">
-          <div><label>Price Risk</label><input id="price_risk" type="number" min="0" max="100" value="88"></div>
-          <div><label>Trust Risk</label><input id="trust_risk" type="number" min="0" max="100" value="76"></div>
-          <div><label>Service Risk</label><input id="service_risk" type="number" min="0" max="100" value="55"></div>
-          <div><label>Transparency Risk</label><input id="transparency_risk" type="number" min="0" max="100" value="84"></div>
-          <div><label>Alternative Risk</label><input id="alternative_risk" type="number" min="0" max="100" value="96"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="logo-wrap">
+        <div class="logo-mark">LG</div>
+        <div>
+          <div class="logo-title">Lexus Guardian AI</div>
+          <div class="logo-sub">Retention Intelligence</div>
         </div>
-
-        <button id="analyzeBtn">Analyze Customer Risk</button>
       </div>
 
-      <div class="panel result-panel">
-        <div class="result-header">
+      <nav class="nav-list">
+        <button class="nav-item active">
+          <span class="nav-dot"></span>
+          Customer Risk
+        </button>
+        <button class="nav-item" disabled>
+          <span class="nav-dot"></span>
+          Executive Dashboard
+          <span class="coming">Soon</span>
+        </button>
+        <button class="nav-item" disabled>
+          <span class="nav-dot"></span>
+          Intervention Lab
+          <span class="coming">Soon</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="foot-label">Prototype</div>
+        <div class="foot-value">v0.4 · Hackathon Build</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">AI-POWERED CUSTOMER RETENTION</p>
+          <h1>車主流失旅程預測與智慧介入引擎</h1>
+          <p class="top-desc">從公開訊號辨識流失階段、關鍵 Trigger，並生成最適合的 Next Best Action。</p>
+        </div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          System Ready
+        </div>
+      </header>
+
+      <section class="journey-card">
+        <div class="section-title-row">
           <div>
-            <div class="small">CHURN RISK SCORE</div>
-            <div class="score" id="score">--</div>
+            <p class="section-kicker">CHURN JOURNEY</p>
+            <h2>從抱怨，到真正離開原廠之前</h2>
           </div>
-          <div class="risk-badge" id="riskLevel">Waiting</div>
+          <div class="journey-note">AI 判斷的是「移動方向」，不只是情緒。</div>
         </div>
 
-        <div class="metric">
-          <div class="small">Journey Stage</div>
-          <div class="big" id="stage">尚未分析</div>
+        <div class="journey-steps">
+          <div class="step"><span class="step-index">0</span><span>穩定</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="step-index">1</span><span>抱怨</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="step-index">2</span><span>懷疑</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="step-index">3</span><span>比較</span></div>
+          <div class="step-line"></div>
+          <div class="step critical"><span class="step-index">4</span><span>尋找替代</span></div>
+          <div class="step-line"></div>
+          <div class="step danger"><span class="step-index">5</span><span>流失</span></div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="panel input-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">01 · SIGNAL INPUT</p>
+              <h3>車主訊號輸入</h3>
+            </div>
+            <button id="demoBtn" class="ghost-btn">載入 Demo</button>
+          </div>
+
+          <label class="field-label" for="text">公開討論文字</label>
+          <textarea id="text" placeholder="貼上 Lexus 車主公開討論文字...">最近回原廠又叫我換一堆東西，報價快三萬，有人推薦台北 Lexus 外廠嗎？</textarea>
+
+          <div class="field-grid">
+            <div>
+              <label class="field-label" for="persona">Persona</label>
+              <select id="persona">
+                <option>價格敏感型</option>
+                <option>信任崩解型</option>
+                <option>時間效率型</option>
+                <option>過保外移型</option>
+                <option>未分類</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="field-label" for="channel">Recommended Channel</label>
+              <select id="channel">
+                <option>LINE / APP</option>
+                <option>服務顧問主動聯繫</option>
+                <option>客服電話</option>
+                <option>CRM 任務派送</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="risk-editor">
+            <div class="risk-editor-head">
+              <div>
+                <p class="section-kicker">RISK DIMENSIONS</p>
+                <h4>五大流失風險</h4>
+              </div>
+              <div class="hint">Prototype 可手動調整風險分數</div>
+            </div>
+
+            <div class="slider-row">
+              <div class="slider-meta"><span>Price Risk</span><strong id="price_risk_value">88</strong></div>
+              <input id="price_risk" type="range" min="0" max="100" value="88">
+            </div>
+
+            <div class="slider-row">
+              <div class="slider-meta"><span>Trust Risk</span><strong id="trust_risk_value">76</strong></div>
+              <input id="trust_risk" type="range" min="0" max="100" value="76">
+            </div>
+
+            <div class="slider-row">
+              <div class="slider-meta"><span>Service Risk</span><strong id="service_risk_value">55</strong></div>
+              <input id="service_risk" type="range" min="0" max="100" value="55">
+            </div>
+
+            <div class="slider-row">
+              <div class="slider-meta"><span>Transparency Risk</span><strong id="transparency_risk_value">84</strong></div>
+              <input id="transparency_risk" type="range" min="0" max="100" value="84">
+            </div>
+
+            <div class="slider-row">
+              <div class="slider-meta"><span>Alternative Risk</span><strong id="alternative_risk_value">96</strong></div>
+              <input id="alternative_risk" type="range" min="0" max="100" value="96">
+            </div>
+          </div>
+
+          <button id="analyzeBtn" class="primary-btn">
+            <span>Analyze Customer Risk</span>
+            <span class="arrow">→</span>
+          </button>
         </div>
 
-        <div class="metric">
-          <div class="small">Primary Trigger</div>
-          <div class="big" id="trigger">尚未分析</div>
+        <div class="panel result-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">02 · AI DECISION</p>
+              <h3>流失風險判讀</h3>
+            </div>
+            <span id="riskLevel" class="risk-pill waiting">Waiting</span>
+          </div>
+
+          <div class="score-card">
+            <div>
+              <div class="score-label">CHURN RISK SCORE</div>
+              <div class="score-wrap">
+                <span id="score" class="score-number">--</span>
+                <span class="score-unit">/ 100</span>
+              </div>
+            </div>
+            <div class="score-copy">
+              <span class="score-copy-label">AI Interpretation</span>
+              <p id="interpretation">尚未分析。按下 Analyze 後，系統會依風險構面與流失階段產生判讀。</p>
+            </div>
+          </div>
+
+          <div class="insight-grid">
+            <div class="insight-card">
+              <span class="insight-label">Journey Stage</span>
+              <strong id="stage">尚未分析</strong>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-label">Primary Trigger</span>
+              <strong id="trigger">尚未分析</strong>
+            </div>
+          </div>
+
+          <div class="action-card">
+            <div class="action-icon">AI</div>
+            <div>
+              <span class="insight-label">NEXT BEST ACTION</span>
+              <p id="action">尚未分析</p>
+            </div>
+          </div>
+
+          <div class="bars-wrap">
+            <div class="bars-head">
+              <span>Risk Profile</span>
+              <span>0 — 100</span>
+            </div>
+            <div id="bars" class="bars"></div>
+          </div>
         </div>
+      </section>
 
-        <div class="metric action">
-          <div class="small">Next Best Action</div>
-          <div class="big" id="action">尚未分析</div>
+      <section class="decision-strip">
+        <div>
+          <p class="section-kicker">DECISION LOGIC</p>
+          <h3>不是只找負面情緒，而是找到「即將流失的行為訊號」</h3>
         </div>
+        <div class="logic-chips">
+          <span>Persona</span>
+          <span>Journey</span>
+          <span>Trigger</span>
+          <span>Intervention</span>
+          <span>Outcome</span>
+        </div>
+      </section>
 
-        <div id="bars" class="bars"></div>
-      </div>
-    </section>
-
-    <section class="footer-note">
-      Prototype logic is heuristic for concept validation only. Production use requires labeled data, calibration, and Lexus first-party outcome validation.
-    </section>
-  </main>
+      <footer class="footer-note">
+        Prototype v0.4 · Heuristic logic for concept validation only. Production use requires labeled data, calibration, and Lexus first-party outcome validation.
+      </footer>
+    </main>
+  </div>
 
   <script src="/static/app.js"></script>
 </body>
